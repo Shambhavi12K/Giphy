@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>Trending GIFs</h3>
+  <div class="gifs">
+    <div class="gif" *ngFor="let gif of gifsData">
+      <img [src]="gif.images.original.url" alt="gif" />
+    </div>
+  </div>
+</div>
+

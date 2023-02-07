@@ -1,0 +1,14 @@
+h3{
+    color: white;
+}
+.gifs{
+    display:grid;
+    grid-template-columns:auto auto auto auto;
+    width:100%;
+}
+.gif img{
+ max-width: 250px;
+ max-height: 250px;
+}
+
+
