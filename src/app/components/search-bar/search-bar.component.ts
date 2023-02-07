@@ -8,12 +8,11 @@ import { GifhyService } from 'src/app/services/gifhy.service';
   styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
+  term: string = '';
+  searchData: any[] = [];
 
-  
-  term:string="";
-  gifsData: any[] = [];
-
-  constructor(private Srv: GifhyService, private router:Router) {}
+  showData:boolean=false;
+  constructor(private Srv: GifhyService, private router: Router) {}
 
   ngOnInit(): void {
     this.search();
@@ -21,7 +20,11 @@ export class SearchBarComponent implements OnInit {
 
   search() {
     if (this.term) {
-      this.Srv.searchGifs(this.term);
+      this.Srv.searchGifs(this.term).subscribe((res: any) => {
+        console.log('Searched', res);
+        this.showData=true;
+        this.searchData = res.data;
+      });
+    }
   }
-}
 }
